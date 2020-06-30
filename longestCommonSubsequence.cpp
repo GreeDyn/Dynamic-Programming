@@ -9,7 +9,11 @@ using namespace std;
 void lcs(string x, string y){
     int n=x.length();
     int m=y.length();
+    
+    // c stores length of common subsequence of X and Y
     int c[n+1][m+1];
+    
+    // b stores common subsequence
     char b[n+1][m+1];
     for(int i=0;i<n+1;i++){
         c[i][0]=0;
@@ -20,7 +24,12 @@ void lcs(string x, string y){
     // 'l' means move left
     // 'u' means move up
     // 'd' means move in diagonal diection
-
+    // let's assume z is the common subsequence of x and y then
+    // if x[n]==y[m] => z[k]=x[n]=y[m] => we have to consider x[n-1] and y[m-1]
+    // if x[n]!=y[m]=> z[k]=x[n] => we have to consider x[n-1] and y[m]
+    // if x[n]!=y[m]=> z[k]=y[m] => we have to consider x[n] and y[m-1]
+    
+    
     for(int i=1;i<n+1;i++){
         for(int j=1;j<m+1;j++){
             if(x[i-1]==y[j-1]){
