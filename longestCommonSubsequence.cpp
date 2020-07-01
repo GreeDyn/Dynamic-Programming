@@ -14,6 +14,7 @@ char** lcs(string x, string y){
     int c[n+1][m+1];
     
     // b stores common subsequence
+    // instead of 2D array, vector can also be used to store common subsequence
     char** b=new char*[n+1] ;
     for(int i=0;i<n+1;i++){
         c[i][0]=0;
@@ -48,7 +49,7 @@ char** lcs(string x, string y){
     }
     
     // print length of the longest common subsequence
-    cout << c[n][m] << endl;
+    cout << "length of the longest common subsequence: " << c[n][m] << endl;
     
     return(b);
 }
