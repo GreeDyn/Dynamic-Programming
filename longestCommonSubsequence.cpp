@@ -67,5 +67,12 @@ string printLcs(char** lcsB, int n, int m, string s, string a){
     return(s);
 }
 int main(){
+    string a="ABCBDAB";
+    string b="BDCABA";
+
+    char** lcsB=lcs(a, b);
+    string s="";
+    s=printLcs(lcsB, a.length(), b.length(), s, a);
+    cout << s << endl;
   return(0);
 }
