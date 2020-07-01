@@ -69,10 +69,20 @@ string printLcs(char** lcsB, int n, int m, string s, string a){
 int main(){
     string a="ABCBDAB";
     string b="BDCABA";
+    int n=a.length();
+    int m=b.length();
 
-    char** lcsB=lcs(a, b);
+    char** lcsArray=lcs(a, b);
     string s="";
-    s=printLcs(lcsB, a.length(), b.length(), s, a);
-    cout << s << endl;
+
+    
+    s=printLcs(lcsArray, a.length(), b.length(), s, a);
+    cout << "longest common subsequence: "<<  s << endl;
+
+    // deallocate lcsArray and free up the memory
+    for(int i=0;i<n+1;i++){
+        delete[] lcsArray[n];
+    }
+    delete[] lcsArray;
   return(0);
 }
