@@ -6,7 +6,7 @@
 
 #include <iostream>
 using namespace std;
-void lcs(string x, string y){
+char** lcs(string x, string y){
     int n=x.length();
     int m=y.length();
     
@@ -14,9 +14,10 @@ void lcs(string x, string y){
     int c[n+1][m+1];
     
     // b stores common subsequence
-    char b[n+1][m+1];
+    char** b=new char*[n+1] ;
     for(int i=0;i<n+1;i++){
         c[i][0]=0;
+        b[i]=new char[m+1];
     }
     for(int i=0;i<m+1;i++){
         c[0][i]=0;
@@ -48,6 +49,8 @@ void lcs(string x, string y){
     
     // print length of the longest common subsequence
     cout << c[n][m] << endl;
+    
+    return(b);
 }
 int main(){
   return(0);
