@@ -52,6 +52,20 @@ char** lcs(string x, string y){
     
     return(b);
 }
+string printLcs(char** lcsB, int n, int m, string s, string a){
+    
+    if(n==0 || m==0){
+        return(s);
+    }else if(lcsB[n][m]=='d'){
+        return printLcs(lcsB, n-1, m-1, a[n-1]+s, a);
+    }else if(lcsB[n][m]=='l'){
+        return printLcs(lcsB, n, m-1, s, a);
+    }else if(lcsB[n][m]=='u'){
+        
+        return printLcs(lcsB, n-1, m, s, a);
+    }
+    return(s);
+}
 int main(){
   return(0);
 }
